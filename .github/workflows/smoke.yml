@@ -1,0 +1,15 @@
+# Minimal CI, running on the self-hosted Forgejo runner at git.smartmemory.ai.
+# GitHub Actions for this org is billing-blocked, so this stays red on GitHub by
+# design -- the authoritative run is the Forgejo one.
+name: smoke
+on: [push]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skills bundle sanity
+        run: |
+          count=$(find . -name '*.md' -not -path './.git/*' | wc -l)
+          echo "markdown files: $count"
+          test "$count" -gt 0
