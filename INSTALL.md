@@ -17,13 +17,13 @@ build step.
 Paste this into Claude Code:
 
 > Please install the SmartMemory skill bundle: copy each `skills/<name>/SKILL.md`
-> from https://github.com/smart-memory/smartmemory-cc-skills into
+> from https://github.com/smartmemory/smartmemory-cc-skills into
 > `~/.claude/skills/<name>/SKILL.md` for name in recall, uncompact, remember.
 
 Or run it directly in a shell (clone, then copy):
 
 ```bash
-git clone https://github.com/smart-memory/smartmemory-cc-skills /tmp/sm-cc-skills
+git clone https://github.com/smartmemory/smartmemory-cc-skills /tmp/sm-cc-skills
 for s in recall uncompact remember; do
   mkdir -p "$HOME/.claude/skills/$s"
   cp "/tmp/sm-cc-skills/skills/$s/SKILL.md" "$HOME/.claude/skills/$s/SKILL.md"
